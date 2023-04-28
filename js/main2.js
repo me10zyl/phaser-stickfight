@@ -32,7 +32,7 @@ var bases;
 
 function preload ()
 {
-    this.load.setPath('assets/')
+    this.load.setPath('assets/flappy-bird-assets-master')
     this.load.image('bird', 'sprites/bluebird-midflap.png');
     this.load.image('pipe', 'sprites/pipe-green.png');
     this.load.image('background', 'sprites/background-day.png');
@@ -54,11 +54,15 @@ function create ()
 
     bird = this.physics.add.sprite(100, 245, 'bird');
 
+
+    //this.add.title
+
     for(let i = 0;i < 7;i++) {
         let base = this.physics.add.sprite(336 / 2 + i * 336, this.physics.world.bounds.height - 112 / 2, 'base');
         base.body.allowGravity = false
         base.setVelocityX(-200);
         base.setImmovable(true)
+        base.setDepth(10)
         bases.add(base)
     }
     birdHeight = bird.body.height;
